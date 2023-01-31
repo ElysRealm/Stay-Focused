@@ -1,0 +1,15 @@
+C:\Users\eb199\source\repos\Stay Focused\bin\Debug\net6.0-windows\Stay Focused.exe
+C:\Users\eb199\source\repos\Stay Focused\bin\Debug\net6.0-windows\Stay Focused.deps.json
+C:\Users\eb199\source\repos\Stay Focused\bin\Debug\net6.0-windows\Stay Focused.runtimeconfig.json
+C:\Users\eb199\source\repos\Stay Focused\bin\Debug\net6.0-windows\Stay Focused.dll
+C:\Users\eb199\source\repos\Stay Focused\bin\Debug\net6.0-windows\Stay Focused.pdb
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\Stay Focused.csproj.AssemblyReference.cache
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\Stay Focused.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\Stay Focused.AssemblyInfoInputs.cache
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\Stay Focused.AssemblyInfo.cs
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\Stay Focused.csproj.CoreCompileInputs.cache
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\Stay Focused.dll
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\refint\Stay Focused.dll
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\Stay Focused.pdb
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\Stay Focused.genruntimeconfig.cache
+C:\Users\eb199\source\repos\Stay Focused\obj\Debug\net6.0-windows\ref\Stay Focused.dll
