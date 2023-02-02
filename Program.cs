@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -6,7 +7,9 @@ namespace StayFocused // Note: actual namespace depends on the project name.
 {
     class Program
     {
-        public static List<string> lines = System.IO.File.ReadLines("C:\\Users\\eb199\\source\\repos\\Stay Focused\\whitelist.txt").ToList();
+
+        //Path.Join(AppDomain.CurrentDomain.BaseDirectory, "potato.txt")
+        public static List<string> lines = File.ReadLines(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "whitelist.txt")).ToList();
 
         [DllImport("user32.dll")]
         static extern int GetForegroundWindow();
