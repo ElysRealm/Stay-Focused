@@ -2,13 +2,13 @@
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using System.Diagnostics;
 
-namespace StayFocused // Note: actual namespace depends on the project name.
+namespace StayFocused
 {
     class Program
     {
-
-        //Path.Join(AppDomain.CurrentDomain.BaseDirectory, "potato.txt")
         public static List<string> lines = File.ReadLines(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "whitelist.txt")).ToList();
 
         [DllImport("user32.dll")]
@@ -23,30 +23,43 @@ namespace StayFocused // Note: actual namespace depends on the project name.
             Console.WriteLine("Programs in the whitelist.txt file will not trigger an alert. If you are not using a program on the white list" +
                 "for more than 5 minutes, an alert will popup");
 
-            WindowWatch();
+            EventHandler();
 
         }
 
-        static void WindowWatch()
+        static void EventHandler()
         {
-            System.Threading.Thread.Sleep(2000);
-            StringBuilder builder = new StringBuilder(255);
-            GetWindowText(GetForegroundWindow(), builder, 255);
-            Console.WriteLine("Builder = " + builder);
-            System.Threading.Thread.Sleep(2000);
-            if (lines.Any(x => builder.ToString().Contains(x)))
+            for (;;)
             {
-                Console.WriteLine("Found a match");
-            }
-            else
-            {
-                Console.WriteLine("No match found.");
-                MessageBox.Show("Shouldn't you be doing some more productive?");
-                System.Threading.Thread.Sleep(300000);
                 WindowWatch();
-            }
 
-            //check if any part of builder matches against the lines list.
+                int sleepTime = 300000;
+
+                Stopwatch stopwatch = Stopwatch.StartNew();
+                while (stopwatch.ElapsedMilliseconds < sleepTime)
+                {
+                    Console.WriteLine("Time remaining: {0}", sleepTime - stopwatch.ElapsedMilliseconds);
+                    System.Threading.Thread.Sleep(100);
+                }
+            }
         }
-    }
+
+        static bool WindowWatch()
+        {
+                StringBuilder builder = new StringBuilder(255);
+                GetWindowText(GetForegroundWindow(), builder, 255);
+                Console.WriteLine("Builder = " + builder);
+
+                if (lines.Any(x => builder.ToString().Contains(x)))
+                {
+                    Console.WriteLine("Found a match");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("no match found");
+                    return false;
+                }
+            }
+        }
 }
