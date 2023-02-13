@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stay Focused", "Stay Focused.csproj", "{A7D601C0-EBAC-4DAC-B073-0D25527DC174}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stay Focused", "Stay Focused.csproj", "{4DAF8B39-BF2F-403D-8DC6-1AEEB270E0DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A7D601C0-EBAC-4DAC-B073-0D25527DC174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7D601C0-EBAC-4DAC-B073-0D25527DC174}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7D601C0-EBAC-4DAC-B073-0D25527DC174}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7D601C0-EBAC-4DAC-B073-0D25527DC174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DAF8B39-BF2F-403D-8DC6-1AEEB270E0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAF8B39-BF2F-403D-8DC6-1AEEB270E0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAF8B39-BF2F-403D-8DC6-1AEEB270E0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAF8B39-BF2F-403D-8DC6-1AEEB270E0DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {530A66D0-2A62-4637-B7D1-C2FD412B100E}
+		SolutionGuid = {A5D53A42-010E-4E30-A026-8C1ECE378070}
 	EndGlobalSection
 EndGlobal
