@@ -9,4 +9,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="_ConsoleAppProject\**" />
+    <EmbeddedResource Remove="_ConsoleAppProject\**" />
+    <None Remove="_ConsoleAppProject\**" />
+  </ItemGroup>
+
 </Project>
