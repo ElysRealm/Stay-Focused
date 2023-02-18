@@ -28,31 +28,40 @@ namespace Stay_Focused
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new StayFocused());
 
-            EventHandler();
+            Task.Run(() => EventHandler());
 
-            System.Windows.Forms.MessageBox.Show("Aye I'm debuggin here!");
-
-            //TODO make this shit work, lol. Call Program to make sure it is doing shit.
+            Application.Run(stayfocused);
         }
 
         static void EventHandler()
         {
-            for (;;)
+            try
             {
-                WindowWatch();
-
-                int sleepTime = 300000;
-
-                Stopwatch stopwatch = Stopwatch.StartNew();
-                while (stopwatch.ElapsedMilliseconds < sleepTime)
+                for (;;)
                 {
-                    stayfocused.timeUntil.Text = "test";
-                    Console.WriteLine("Time until next check: {0}", sleepTime - stopwatch.ElapsedMilliseconds);
-                    System.Threading.Thread.Sleep(100);
+                    WindowWatch();
+
+                    int sleepTime = 300000;
+
+                    Stopwatch stopwatch = Stopwatch.StartNew();
+                    while (stopwatch.ElapsedMilliseconds < sleepTime)
+                    {
+                        long res = sleepTime - stopwatch.ElapsedMilliseconds;
+                        string resString = res.ToString();
+                        stayfocused.timeUntil.Invoke((Action)(() => stayfocused.timeUntil.Text = resString));
+                        //use Control.Invoke to update the UI from the same thread that created the control
+                        //this is necessary because UI controls can only be accessed from the thread that created them
+                        System.Threading.Thread.Sleep(100);
+                    }
                 }
             }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An exception occurred: {ex.Message}");
+            }
+            
         }
 
         static bool WindowWatch()
@@ -63,12 +72,12 @@ namespace Stay_Focused
 
             if (lines.Any(x => builder.ToString().Contains(x)))
             {
-                Console.WriteLine("Found a match");
+                Debug.WriteLine("Found a match");
                 return true;
             }
             else
             {
-                Console.WriteLine("no match found");
+                Debug.WriteLine("no match found");
                 return false;
             }
         }
