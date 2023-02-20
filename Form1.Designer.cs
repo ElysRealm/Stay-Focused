@@ -50,7 +50,7 @@
             this.explainTimeUntil.Name = "explainTimeUntil";
             this.explainTimeUntil.Size = new System.Drawing.Size(162, 15);
             this.explainTimeUntil.TabIndex = 1;
-            this.explainTimeUntil.Text = "Time Unitl Next Focus Check:";
+            this.explainTimeUntil.Text = "Time Until Next Focus Check:";
             // 
             // timeUntil
             // 
@@ -69,6 +69,8 @@
             this.Controls.Add(this.timeUntil);
             this.Controls.Add(this.explainTimeUntil);
             this.Controls.Add(this.aboutLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "StayFocused";
             this.Text = "Stay Focused";
             this.ResumeLayout(false);

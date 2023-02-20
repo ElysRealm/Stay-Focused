@@ -1,10 +1,12 @@
-using System.Diagnostics;
-using System.Reflection;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading;
-using System.Windows.Forms;
+using System.Diagnostics;
+using System.Reflection;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Stay_Focused
 {
@@ -32,6 +34,7 @@ namespace Stay_Focused
             Task.Run(() => EventHandler());
 
             Application.Run(stayfocused);
+
         }
 
         static void EventHandler()
@@ -40,8 +43,7 @@ namespace Stay_Focused
             {
                 for (;;)
                 {
-                    WindowWatch();
-
+                    System.Threading.Thread.Sleep(100); //seems to be needed to prevent an exception :clown:
                     int sleepTime = 300000;
 
                     Stopwatch stopwatch = Stopwatch.StartNew();
@@ -54,6 +56,8 @@ namespace Stay_Focused
                         //this is necessary because UI controls can only be accessed from the thread that created them
                         System.Threading.Thread.Sleep(100);
                     }
+
+                    WindowWatch();
                 }
             }
 
@@ -73,11 +77,18 @@ namespace Stay_Focused
             if (lines.Any(x => builder.ToString().Contains(x)))
             {
                 Debug.WriteLine("Found a match");
+                stayfocused.Invoke((MethodInvoker)delegate {
+                    MessageBox.Show("Looks like you're staying on task, good job!", "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                });
+
                 return true;
             }
             else
             {
-                Debug.WriteLine("no match found");
+                Debug.WriteLine("no match found, alerting user");
+                stayfocused.Invoke((MethodInvoker)delegate {
+                    MessageBox.Show("It looks like you're off task! Try to refocus on your work.", "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                });
                 return false;
             }
         }
